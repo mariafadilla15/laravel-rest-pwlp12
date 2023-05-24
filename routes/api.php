@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route:: get('/hello', function(){
     //return response()->json($data); //JS11 praktikum1-return response berupa json
     return"hello world"; //JS11 praktikum1-return response tidak berupa json (tidak mnegimplementasi REST API)
 });
+
+Route::apiResource('/mahasiswa', MahasiswaController::class);
