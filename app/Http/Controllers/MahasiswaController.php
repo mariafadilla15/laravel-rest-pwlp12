@@ -67,9 +67,17 @@ class MahasiswaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateMahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
-        //
+        $mahasiswa->update([
+            'nim'=>$request->nim,
+            'nama'=>$request->nama,
+            'prodi'=>$request->prodi,
+            'jurusan'=>$request->jurusan,
+            'no_hp'=>$request->no_hp,
+            'kelas_id'=>$request->kelas,
+        ]);
+        return new MahasiswaResource($mahasiswa);
     }
 
     /**
@@ -77,6 +85,6 @@ class MahasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       //
     }
 }
