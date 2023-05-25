@@ -32,9 +32,20 @@ class MahasiswaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreMahasiswaRequest $request)
     {
-        //
+        //return response()->json('hello');
+        return new MahasiswaResource(Mahasiswa::create(
+            [
+                'nim' => $request->nim,
+                'nama' => $request->nama,
+                'prodi' => $request->prodi,
+                'jurusan' => $request->jurusan,
+                'no_hp' => $request->no_hp,
+                'kelas_id' => $request->kelas,
+
+            ]
+        ));
     }
 
     /**
