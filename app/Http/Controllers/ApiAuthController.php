@@ -36,4 +36,11 @@ class ApiAuthController extends Controller
             'token'=>$token,
         ],200);
     }
+
+    //JS 13 - Praktikum 2
+    public function logout(Request $request){
+        $request->user()->tokens()->delete();
+
+        return response()->noContent();
+    }
 }

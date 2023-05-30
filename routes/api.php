@@ -27,5 +27,10 @@ Route:: get('/hello', function(){
 });
 
 Route::apiResource('/mahasiswa', MahasiswaController::class);
-//JS12 - Praktikum 1
+//JS13 - Praktikum 1
 Route::post('/login',[ApiAuthController::class, 'login']);
+//JS13 - Praktikum 2
+Route::middleware('auth:sanctum')->group(function(){
+    Route::apiResource('/mahasiswa', MahasiswaController::class);
+    Route::get('/logout', [ApiAuthController::class, 'logout']);
+});
