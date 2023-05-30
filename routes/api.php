@@ -26,7 +26,7 @@ Route:: get('/hello', function(){
     return"hello world"; //JS11 praktikum1-return response tidak berupa json (tidak mnegimplementasi REST API)
 });
 
-Route::apiResource('/mahasiswa', MahasiswaController::class);
+//Route::apiResource('/mahasiswa', MahasiswaController::class);
 //JS13 - Praktikum 1
 Route::post('/login',[ApiAuthController::class, 'login']);
 //JS13 - Praktikum 2
@@ -34,3 +34,5 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('/mahasiswa', MahasiswaController::class);
     Route::get('/logout', [ApiAuthController::class, 'logout']);
 });
+//JS 13 - Praktikum 3
+Route::post('/register',[ApiAuthController::class,'register']);
